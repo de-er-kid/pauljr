@@ -564,9 +564,9 @@ const Lightbox: React.FC<LightboxProps> = ({ image, images, onClose, onNext, onP
             />
             {image.title && (
               <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-4">
-                <h3 className="text-xl font-playfair">{image.title}</h3>
+                {/* <h3 className="text-xl font-playfair">{image.title}</h3> */}
                 {image.description && (
-                  <p className="text-sm mt-1">{image.description}</p>
+                  <p className="text-sm mt-1 hidden">{image.description}</p>
                 )}
                 <p className="text-sm mt-2 text-gray-300">
                   {currentIndex + 1} of {images.length}
@@ -649,7 +649,7 @@ export default function GalleryPage(): JSX.Element {
                 />
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="flex items-center justify-center h-full">
-                    <p className="text-white font-playfair text-xl">{item.title}</p>
+                    {/* <p className="text-white font-playfair text-xl">{item.title}</p> */}
                   </div>
                 </div>
               </motion.div>
