@@ -138,7 +138,7 @@ export default function InvestmentPage() {
             <h2 className="font-playfair text-3xl text-center mb-8">Photo Packages</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {photoPackages.map((pkg, index) => (
-                <Card key={index} className="relative overflow-hidden border-none shadow-package cursor-pointer hover:scale-95 hover:shadow-packageHover transition-all duration-300 ease">
+                <Card key={index} className="relative overflow-hidden border-none shadow-md cursor-pointer hover:scale-95 hover:shadow-packageHover transition-all duration-300 ease">
                   <CardHeader>
                     <CardTitle className="font-playfair text-xl">{pkg.title}</CardTitle>
                   </CardHeader>
@@ -165,7 +165,7 @@ export default function InvestmentPage() {
             <h2 className="font-playfair text-3xl text-center mb-8">Hybrid Packages (Photo + Video)</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {hybridPackages.map((pkg, index) => (
-                <Card key={index} className="relative overflow-hidden border-none shadow-package cursor-pointer hover:scale-95 hover:shadow-packageHover transition-all duration-300 ease">
+                <Card key={index} className="relative overflow-hidden border-none shadow-md cursor-pointer hover:scale-95 hover:shadow-packageHover transition-all duration-300 ease">
                   <CardHeader>
                     <CardTitle className="font-playfair text-xl">{pkg.title}</CardTitle>
                   </CardHeader>
