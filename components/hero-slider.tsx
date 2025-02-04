@@ -8,18 +8,18 @@ import { Button } from "@/components/ui/button"
 const slides = [
   {
     image:
-      "/gallery/events/DSC09988.webp?height=1080&width=1920",
+      "/gallery/listing/Concert-Festival/event (81).webp",
     title: "Capturing Timeless Moments",
     subtitle: "Professional photography services in Listowel, Ontario",
   },
   {
     image:
-      "/gallery/family/DSC02940 2.webp?height=1080&width=1920",
+      "/gallery/listing/Weddings/wedding (3).webp?height=1080&width=1920",
     title: "Creating Lasting Memories",
     subtitle: "Wedding, Portrait & Event Photography",
   },
   {
-    image: "/gallery/family/DSC08739.webp?height=1080&width=1920",
+    image: "/gallery/listing/Maternity/maternity (4).webp?height=1080&width=1920",
     title: "Your Story, Beautifully Told",
     subtitle: "Available throughout Canada",
   },

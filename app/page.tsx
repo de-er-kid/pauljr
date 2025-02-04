@@ -6,12 +6,12 @@ import { InstagramFeed } from "@/components/instagram-feed"
 import { ModernTestimonials } from "@/components/modern-testimonials"
 
 const services = [
-  { title: "Weddings", image: "/gallery/family/DSC09576.webp?height=600&width=800" },
-  { title: "Portraits", image: "/gallery/family/DSC07193.webp?height=600&width=800" },
-  { title: "Events", image: "/gallery/events/DSC05941-Enhanced-NR.webp?height=600&width=800" },
-  { title: "Family", image: "/gallery/family/DSC04679.webp?height=600&width=800" },
-  { title: "Maternity", image: "/gallery/family/DSC07640.webp?height=600&width=800" },
-  { title: "Newborn", image: "/gallery/family/DSC08697.webp?height=600&width=800" },
+  { title: "Weddings", image: "/gallery/listing/Weddings/wedding (10).webp?height=600&width=800" },
+  { title: "Portraits", image: "/gallery/listing/Family/family (5).webp?height=600&width=800" },
+  { title: "Events", image: "/gallery/listing/Concert-Festival/event (61).webp?height=600&width=800" },
+  { title: "Family", image: "/gallery/listing/Engagement/engagement (2).webp?height=600&width=800" },
+  { title: "Maternity", image: "/gallery/listing/Maternity/maternity (3).webp?height=600&width=800" },
+  { title: "Newborn", image: "/gallery/listing/Newborn/newborn (4).webp?height=600&width=800" },
 ]
 
 export default function Home() {
@@ -45,7 +45,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative aspect-square rounded-lg overflow-hidden">
               <Image
-                src="/gallery/Family/DSC00544.webp?height=800&width=800"
+                src="/gallery/listing/Newborn/newborn (2).webp"
                 alt="Capturing moments"
                 fill
                 className="object-cover"
@@ -79,7 +79,7 @@ export default function Home() {
             </div>
             <div className="order-1 md:order-2 relative aspect-square rounded-lg overflow-hidden">
               <Image
-                src="/gallery/events/DSC03902-2.webp?height=800&width=800"
+                src="/gallery/listing/Concert-Festival/event (38).webp?height=800&width=800"
                 alt="Cinematic moments"
                 fill
                 className="object-cover"
@@ -94,7 +94,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative aspect-square rounded-lg overflow-hidden">
               <Image
-                src="/gallery/family/DSC08980.webp?height=800&width=800"
+                src="/gallery/listing/Newborn/newborn (6).webp?height=800&width=800"
                 alt="Professional photography"
                 fill
                 className="object-cover"
