@@ -6,12 +6,12 @@ import { InstagramFeed } from "@/components/instagram-feed"
 import { ModernTestimonials } from "@/components/modern-testimonials"
 
 const services = [
-  { title: "Weddings", image: "/gallery/family/DSC09576.jpg?height=600&width=800" },
-  { title: "Portraits", image: "/gallery/family/DSC07193.jpg?height=600&width=800" },
-  { title: "Events", image: "/gallery/events/DSC05941-Enhanced-NR.jpg?height=600&width=800" },
-  { title: "Family", image: "/gallery/family/DSC04679.jpg?height=600&width=800" },
-  { title: "Maternity", image: "/gallery/family/DSC07640.jpg?height=600&width=800" },
-  { title: "Newborn", image: "/gallery/family/DSC08697.jpg?height=600&width=800" },
+  { title: "Weddings", image: "/gallery/family/DSC09576.webp?height=600&width=800" },
+  { title: "Portraits", image: "/gallery/family/DSC07193.webp?height=600&width=800" },
+  { title: "Events", image: "/gallery/events/DSC05941-Enhanced-NR.webp?height=600&width=800" },
+  { title: "Family", image: "/gallery/family/DSC04679.webp?height=600&width=800" },
+  { title: "Maternity", image: "/gallery/family/DSC07640.webp?height=600&width=800" },
+  { title: "Newborn", image: "/gallery/family/DSC08697.webp?height=600&width=800" },
 ]
 
 export default function Home() {
@@ -45,7 +45,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative aspect-square rounded-lg overflow-hidden">
               <Image
-                src="/gallery/Family/DSC00544.jpg?height=800&width=800"
+                src="/gallery/Family/DSC00544.webp?height=800&width=800"
                 alt="Capturing moments"
                 fill
                 className="object-cover"
@@ -79,7 +79,7 @@ export default function Home() {
             </div>
             <div className="order-1 md:order-2 relative aspect-square rounded-lg overflow-hidden">
               <Image
-                src="/gallery/events/DSC03902-2.jpg?height=800&width=800"
+                src="/gallery/events/DSC03902-2.webp?height=800&width=800"
                 alt="Cinematic moments"
                 fill
                 className="object-cover"
@@ -94,7 +94,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative aspect-square rounded-lg overflow-hidden">
               <Image
-                src="/gallery/family/DSC08980.jpg?height=800&width=800"
+                src="/gallery/family/DSC08980.webp?height=800&width=800"
                 alt="Professional photography"
                 fill
                 className="object-cover"

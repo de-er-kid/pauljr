@@ -130,7 +130,7 @@ export default function InvestmentPage() {
       <PageHeader
         title="Investment"
         breadcrumbs={[{ label: "Investment", href: "/investment" }]}
-        backgroundImage="/banner-bg.jpg?height=800&width=1200"
+        backgroundImage="/banner-bg.webp?height=800&width=1200"
       />
       <div className="container mx-auto px-4 py-16">
         <div className="space-y-16">

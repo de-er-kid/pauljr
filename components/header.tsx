@@ -47,7 +47,7 @@ export function Header() {
           <Link href="/">
             <div className="relative w-[134px] h-[42px] transition-all duration-300">
               <Image
-                src={isScrolled ? "/logo/Paul Jr - Word Mark (Black).png" : "/logo/Paul Jr - Word Mark (White).png"}
+                src={isScrolled ? "/logo/Paul Jr - Word Mark (Black).webp" : "/logo/Paul Jr - Word Mark (White).webp"}
                 alt="Paul Jr Logo"
                 layout="fill"
                 objectFit="contain"

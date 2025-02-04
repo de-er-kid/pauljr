@@ -9,7 +9,7 @@ export function Footer() {
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <img src="/logo/Paul Jr - Word Mark (White).png" alt="Paul Jr" className="mb-4 w-[180px] h-auto max-w-full max-h-full" />
+            <img src="/logo/Paul Jr - Word Mark (White).webp" alt="Paul Jr" className="mb-4 w-[180px] h-auto max-w-full max-h-full" />
             <p className="font-cormorant">Professional photography services in Listowel, Ontario</p>
           </div>
           <div>

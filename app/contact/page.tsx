@@ -26,7 +26,7 @@ export default function ContactPage() {
       <PageHeader
         title="Contact Us"
         breadcrumbs={[{ label: "Contact", href: "/contact" }]}
-        backgroundImage="/banner-bg.jpg?height=800&width=1200"
+        backgroundImage="/banner-bg.webp?height=800&width=1200"
       />
       <div className="container mx-auto px-4 py-16">
         <div className="max_w_5xl mx-auto">

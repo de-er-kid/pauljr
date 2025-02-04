@@ -50,7 +50,7 @@ export default function FAQPage() {
       <PageHeader
         title="Frequently Asked Questions"
         breadcrumbs={[{ label: "FAQ", href: "/faq" }]}
-        backgroundImage="/banner-bg.jpg?height=800&width=1200"
+        backgroundImage="/banner-bg.webp?height=800&width=1200"
       />
       <div className="container mx-auto px-4 py-16">
         <div className="max_w_3xl mx-auto">

@@ -43,150 +43,150 @@ const categories: string[] = ["All", "Family", "Concert/Festival", "Weddings", "
 
 const galleryItems: GalleryItem[] = [
   {
-    src: "/gallery/listing/Concert-Festival/event (6).jpg",
+    src: "/gallery/listing/Concert-Festival/event (6).webp",
     category: "Concert/Festival",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Concert-Festival/event (1).jpg",
+    src: "/gallery/listing/Concert-Festival/event (1).webp",
     category: "Concert/Festival",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Concert-Festival/event (2).jpg",
+    src: "/gallery/listing/Concert-Festival/event (2).webp",
     category: "Concert/Festival",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Concert-Festival/event (3).jpg",
+    src: "/gallery/listing/Concert-Festival/event (3).webp",
     category: "Concert/Festival",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Concert-Festival/event (4).jpg",
+    src: "/gallery/listing/Concert-Festival/event (4).webp",
     category: "Concert/Festival",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Concert-Festival/event (5).jpg",
+    src: "/gallery/listing/Concert-Festival/event (5).webp",
     category: "Concert/Festival",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Concert-Festival/event (8).jpg",
+    src: "/gallery/listing/Concert-Festival/event (8).webp",
     category: "Concert/Festival",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Concert-Festival/event (9).jpg",
+    src: "/gallery/listing/Concert-Festival/event (9).webp",
     category: "Concert/Festival",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Concert-Festival/event (10).jpg",
+    src: "/gallery/listing/Concert-Festival/event (10).webp",
     category: "Concert/Festival",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Concert-Festival/event (11).jpg",
+    src: "/gallery/listing/Concert-Festival/event (11).webp",
     category: "Concert/Festival",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   // generate 12 - 25 images object for Concert/Festival
   {
-    src: "/gallery/listing/Concert-Festival/event (12).jpg",
+    src: "/gallery/listing/Concert-Festival/event (12).webp",
     category: "Concert/Festival",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Concert-Festival/event (13).jpg",
+    src: "/gallery/listing/Concert-Festival/event (13).webp",
     category: "Concert/Festival",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Concert-Festival/event (14).jpg",
+    src: "/gallery/listing/Concert-Festival/event (14).webp",
     category: "Concert/Festival",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Concert-Festival/event (15).jpg",
+    src: "/gallery/listing/Concert-Festival/event (15).webp",
     category: "Concert/Festival",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Concert-Festival/event (16).jpg",
+    src: "/gallery/listing/Concert-Festival/event (16).webp",
     category: "Concert/Festival",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Concert-Festival/event (17).jpg",
+    src: "/gallery/listing/Concert-Festival/event (17).webp",
     category: "Concert/Festival",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Concert-Festival/event (18).jpg",
+    src: "/gallery/listing/Concert-Festival/event (18).webp",
     category: "Concert/Festival",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Concert-Festival/event (19).jpg",
+    src: "/gallery/listing/Concert-Festival/event (19).webp",
     category: "Concert/Festival",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Concert-Festival/event (20).jpg",
+    src: "/gallery/listing/Concert-Festival/event (20).webp",
     category: "Concert/Festival",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   
   {
-    src: "/gallery/listing/Concert-Festival/event (21).jpg",
+    src: "/gallery/listing/Concert-Festival/event (21).webp",
     category: "Concert/Festival",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Concert-Festival/event (22).jpg",
+    src: "/gallery/listing/Concert-Festival/event (22).webp",
     category: "Concert/Festival",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   
     {
-      src: "/gallery/listing/Concert-Festival/event (23).jpg",
+      src: "/gallery/listing/Concert-Festival/event (23).webp",
       category: "Concert/Festival",
       title: "Lorum Ipsum Dolor Sit Amet",
       description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
     },
   
     {
-      src: "/gallery/listing/Concert-Festival/event (24).jpg",
+      src: "/gallery/listing/Concert-Festival/event (24).webp",
       category: "Concert/Festival",
       title: "Lorum Ipsum Dolor Sit Amet",
       description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
     },
   
     {
-      src: "/gallery/listing/Concert-Festival/event (25).jpg",
+      src: "/gallery/listing/Concert-Festival/event (25).webp",
       category: "Concert/Festival",
       title: "Lorum Ipsum Dolor Sit Amet",
       description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
@@ -195,81 +195,81 @@ const galleryItems: GalleryItem[] = [
 
   // generate 13 wedding image objects
   {
-    src: "/gallery/listing/Weddings/wedding (1).jpg",
+    src: "/gallery/listing/Weddings/wedding (1).webp",
     category: "Weddings",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Weddings/wedding (2).jpg",
+    src: "/gallery/listing/Weddings/wedding (2).webp",
     category: "Weddings",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Weddings/wedding (3).jpg",
+    src: "/gallery/listing/Weddings/wedding (3).webp",
     category: "Weddings",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Weddings/wedding (4).jpg",
+    src: "/gallery/listing/Weddings/wedding (4).webp",
     category: "Weddings",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Weddings/wedding (5).jpg",
+    src: "/gallery/listing/Weddings/wedding (5).webp",
     category: "Weddings",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Weddings/wedding (6).jpg",
+    src: "/gallery/listing/Weddings/wedding (6).webp",
     category: "Weddings",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Weddings/wedding (7).jpg",
+    src: "/gallery/listing/Weddings/wedding (7).webp",
     category: "Weddings",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Weddings/wedding (8).jpg",
+    src: "/gallery/listing/Weddings/wedding (8).webp",
     category: "Weddings",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Weddings/wedding (9).jpg",
+    src: "/gallery/listing/Weddings/wedding (9).webp",
     category: "Weddings",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Weddings/wedding (10).jpg",
+    src: "/gallery/listing/Weddings/wedding (10).webp",
     category: "Weddings",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
 
   {
-    src: "/gallery/listing/Weddings/wedding (11).jpg",
+    src: "/gallery/listing/Weddings/wedding (11).webp",
     category: "Weddings",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Weddings/wedding (12).jpg",
+    src: "/gallery/listing/Weddings/wedding (12).webp",
     category: "Weddings",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   
     {
-      src: "/gallery/listing/Weddings/wedding (13).jpg",
+      src: "/gallery/listing/Weddings/wedding (13).webp",
       category: "Weddings",
       title: "Lorum Ipsum Dolor Sit Amet",
       description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
@@ -278,172 +278,172 @@ const galleryItems: GalleryItem[] = [
 
   // family generate 8 images object
   {
-    src: "/gallery/listing/Family/family (1).jpg",
+    src: "/gallery/listing/Family/family (1).webp",
     category: "Family",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Family/family (2).jpg",
+    src: "/gallery/listing/Family/family (2).webp",
     category: "Family",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Family/family (3).jpg",
+    src: "/gallery/listing/Family/family (3).webp",
     category: "Family",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Family/family (4).jpg",
+    src: "/gallery/listing/Family/family (4).webp",
     category: "Family",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Family/family (5).jpg",
+    src: "/gallery/listing/Family/family (5).webp",
     category: "Family",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Family/family (6).jpg",
+    src: "/gallery/listing/Family/family (6).webp",
     category: "Family",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Family/family (7).jpg",
+    src: "/gallery/listing/Family/family (7).webp",
     category: "Family",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Family/family (8).jpg",
+    src: "/gallery/listing/Family/family (8).webp",
     category: "Family",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   // 6 newborn images object
   {
-    src: "/gallery/listing/Newborn/newborn (1).jpg",
+    src: "/gallery/listing/Newborn/newborn (1).webp",
     category: "Newborn",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Newborn/newborn (2).jpg",
+    src: "/gallery/listing/Newborn/newborn (2).webp",
     category: "Newborn",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Newborn/newborn (3).jpg",
+    src: "/gallery/listing/Newborn/newborn (3).webp",
     category: "Newborn",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Newborn/newborn (4).jpg",
+    src: "/gallery/listing/Newborn/newborn (4).webp",
     category: "Newborn",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Newborn/newborn (5).jpg",
+    src: "/gallery/listing/Newborn/newborn (5).webp",
     category: "Newborn",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Newborn/newborn (6).jpg",
+    src: "/gallery/listing/Newborn/newborn (6).webp",
     category: "Newborn",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   // 12 maternity images object
   {
-    src: "/gallery/listing/Maternity/maternity (1).jpg",
+    src: "/gallery/listing/Maternity/maternity (1).webp",
     category: "Maternity",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Maternity/maternity (2).jpg",
+    src: "/gallery/listing/Maternity/maternity (2).webp",
     category: "Maternity",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Maternity/maternity (3).jpg",
+    src: "/gallery/listing/Maternity/maternity (3).webp",
     category: "Maternity",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Maternity/maternity (4).jpg",
+    src: "/gallery/listing/Maternity/maternity (4).webp",
     category: "Maternity",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Maternity/maternity (5).jpg",
+    src: "/gallery/listing/Maternity/maternity (5).webp",
     category: "Maternity",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Maternity/maternity (6).jpg",
+    src: "/gallery/listing/Maternity/maternity (6).webp",
     category: "Maternity",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Maternity/maternity (7).jpg",
+    src: "/gallery/listing/Maternity/maternity (7).webp",
     category: "Maternity",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Maternity/maternity (8).jpg",
+    src: "/gallery/listing/Maternity/maternity (8).webp",
     category: "Maternity",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Maternity/maternity (9).jpg",
+    src: "/gallery/listing/Maternity/maternity (9).webp",
     category: "Maternity",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Maternity/maternity (10).jpg",
+    src: "/gallery/listing/Maternity/maternity (10).webp",
     category: "Maternity",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Maternity/maternity (11).jpg",
+    src: "/gallery/listing/Maternity/maternity (11).webp",
     category: "Maternity",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Maternity/maternity (12).jpg",
+    src: "/gallery/listing/Maternity/maternity (12).webp",
     category: "Maternity",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   // 2 engagement images object
   {
-    src: "/gallery/listing/Engagement/engagement (1).jpg",
+    src: "/gallery/listing/Engagement/engagement (1).webp",
     category: "Engagement",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
   },
   {
-    src: "/gallery/listing/Engagement/engagement (2).jpg",
+    src: "/gallery/listing/Engagement/engagement (2).webp",
     category: "Engagement",
     title: "Lorum Ipsum Dolor Sit Amet",
     description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
@@ -605,7 +605,7 @@ export default function GalleryPage(): JSX.Element {
       <PageHeader
         title="Gallery"
         breadcrumbs={[{ label: "Gallery", href: "/gallery" }]}
-        backgroundImage="/banner-bg.jpg?height=800&width=1200"
+        backgroundImage="/banner-bg.webp?height=800&width=1200"
       />
       <div className="container mx-auto px-4 py-16">
         <div className="flex flex-wrap justify-center gap-4 mb-12">

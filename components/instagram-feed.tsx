@@ -62,7 +62,7 @@ export function InstagramFeed() {
     function setPlaceholderPosts() {
       const placeholderPosts: InstagramPost[] = Array.from({ length: 6 }, (_, i) => ({
         id: `post-${i}`,
-        media_url: `/gallery/listing/Family/family (${i + 1}).jpg?height=600&width=600&text=Instagram+Post+${i + 1}`,
+        media_url: `/gallery/listing/Family/family (${i + 1}).webp?height=600&width=600&text=Instagram+Post+${i + 1}`,
         permalink: "/gallery", // Added missing permalink to match the required type
         caption: `This is a placeholder caption for post ${i + 1}`,
       }));
