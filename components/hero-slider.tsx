@@ -10,7 +10,7 @@ const slides = [
     image:
       "/gallery/listing/Concert-Festival/event (81).webp",
     title: "Capturing Timeless Moments",
-    subtitle: "Professional photography services in Listowel, Ontario",
+    subtitle: "Professional photography services in Ontario",
   },
   {
     image:
