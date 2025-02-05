@@ -1,5 +1,5 @@
-import Image from "next/image"
-import { PageHeader } from "@/components/page-header"
+import Image from "next/image";
+import { PageHeader } from "@/components/page-header";
 
 export default function AboutPage() {
   return (
@@ -12,34 +12,45 @@ export default function AboutPage() {
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="font-playfair text-3xl md:text-4xl mb-6">I'm Amal Basil Paul, Your Storyteller</h2>
+            <h2 className="font-playfair text-3xl md:text-4xl mb-6 capitalize">
+              Hi, I’m Amal Basil Paul—your visual storyteller.
+            </h2>
             <div className="space-y-6 font-cormorant text-lg">
               <p>
-                Based in Listowel, Ontario, and willing to travel throughout Canada, I'm here to capture your most
-                precious moments.
+                Based in Listowel, Ontario, but available to travel throughout
+                Canada, I’m here to capture the moments that matter most to you.
               </p>
               <p>
-                Embark on a visual journey with me, where every moment is an exquisite frame in the story of your life.
+                Every session with me is more than just taking pictures—it’s
+                about creating a visual narrative where each frame feels
+                authentic, timeless, and true to you. From helping you choose
+                the perfect location and wardrobe to offering gentle guidance on
+                posing, I’ll ensure you feel comfortable and confident, with
+                each shot reflecting your unique essence.
               </p>
               <p>
-                With a keen eye for detail, I offer comprehensive guidance on posing, ensuring that each shot reflects
-                your unique essence. As your visual storyteller, I strive to be invisible, letting your narrative unfold
-                naturally while I craft each frame with an artist's touch.
+                My goal? To blend into the background and let your story unfold
+                naturally while I capture it with an artistic touch.
               </p>
               <p>
-                Let's create a cinematic masterpiece together, where your story unfolds in frames that resonate with the
-                magic of a timeless film.
+                Let’s create something unforgettable—a memorable collection of
+                photos that captures both the grand and intimate moments that
+                make your story uniquely yours.
               </p>
             </div>
           </div>
           <div>
             <div className="relative aspect-[5/4] rounded-lg overflow-hidden">
-              <Image src="/about/Amal Basil Paul - pauljrphotography.webp" alt="Amal Basil Paul" fill className="object-cover" />
+              <Image
+                src="/about/Amal Basil Paul - pauljrphotography.webp"
+                alt="Amal Basil Paul"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
         </div>
       </div>
     </>
-  )
+  );
 }
-
