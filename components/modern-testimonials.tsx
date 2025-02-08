@@ -9,11 +9,16 @@ import { fetchTestimonials, Testimonial } from '../lib/api'
 export function ModernTestimonials() {
   const [testimonials, setTestimonials] = React.useState<Testimonial[]>([]);
   const [currentIndex, setCurrentIndex] = React.useState(0);
+  const [error, setError] = React.useState<string | null>(null);
 
   React.useEffect(() => {
     async function getTestimonials() {
-      const data = await fetchTestimonials();
-      setTestimonials(data);
+      try {
+        const data = await fetchTestimonials();
+        setTestimonials(data);
+      } catch (error) {
+        setError('Failed to fetch testimonials. Please try again later.');
+      }
     }
     getTestimonials();
   }, []);
@@ -25,6 +30,10 @@ export function ModernTestimonials() {
   const prevTestimonial = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
   };
+
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   if (testimonials.length === 0) {
     return <div>Loading...</div>;

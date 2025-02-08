@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_WORDPRESS_API_BASE_URL;
+console.log('API_BASE_URL:', API_BASE_URL);
 
 export interface Testimonial {
   name: string;
@@ -10,6 +11,11 @@ export interface Testimonial {
 }
 
 export async function fetchTestimonials(): Promise<Testimonial[]> {
-  const response = await axios.get<Testimonial[]>(`${API_BASE_URL}/testimonials`);
-  return response.data;
+  try {
+    const response = await axios.get<Testimonial[]>(`${API_BASE_URL}/testimonials`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching testimonials:', error);
+    throw error;
+  }
 }
