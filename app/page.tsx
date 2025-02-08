@@ -7,8 +7,8 @@ import { ModernTestimonials } from "@/components/modern-testimonials"
 
 const services = [
   { title: "Weddings", image: "/gallery/listing/Weddings/wedding (10).webp?height=600&width=800" },
-  { title: "Portraits", image: "/gallery/listing/Family/family (5).webp?height=600&width=800" },
-  { title: "Events", image: "/gallery/listing/Concert-Festival/event (61).webp?height=600&width=800" },
+  { title: "Engagement", image: "/gallery/listing/Family/family (5).webp?height=600&width=800" },
+  { title: "Concert/Festival", image: "/gallery/listing/Concert-Festival/event (61).webp?height=600&width=800" },
   { title: "Family", image: "/gallery/listing/Engagement/engagement (2).webp?height=600&width=800" },
   { title: "Maternity", image: "/gallery/listing/Maternity/maternity (3).webp?height=600&width=800" },
   { title: "Newborn", image: "/gallery/listing/Newborn/newborn (4).webp?height=600&width=800" },
