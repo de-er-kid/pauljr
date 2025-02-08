@@ -1,5 +1,6 @@
 "use client"
 import * as React from "react"
+import { Suspense } from "react"
 import Image from "next/image"
 import { useSearchParams, useRouter } from "next/navigation"
 import { cn } from "@/lib/utils"
@@ -590,14 +591,13 @@ const Lightbox: React.FC<LightboxProps> = ({ image, images, onClose, onNext, onP
   )
 }
 
-export default function GalleryPage(): JSX.Element {
+function GalleryContent(): JSX.Element {
   const router = useRouter()
   const searchParams = useSearchParams()
   const categoryParam = searchParams.get('category')
   
-  // Validate and set the category, defaulting to "All" if invalid
   const selectedCategory = categories.includes(categoryParam || "") 
-    ? categoryParam || "All"  // converts null to "All"
+    ? categoryParam || "All"
     : "All"
   
   const [selectedImageIndex, setSelectedImageIndex] = React.useState<number | null>(null)
@@ -607,24 +607,13 @@ export default function GalleryPage(): JSX.Element {
   )
 
   const handleCategoryChange = (category: string) => {
-    // Update URL when category changes
-    const params = new URLSearchParams()
+    const params = new URLSearchParams(searchParams)
     if (category !== "All") {
       params.set('category', category)
+    } else {
+      params.delete('category')
     }
     router.push(`/gallery${params.toString() ? `?${params.toString()}` : ''}`)
-  }
-
-  const handlePrevious = () => {
-    setSelectedImageIndex((current) => 
-      current !== null && current > 0 ? current - 1 : current
-    )
-  }
-
-  const handleNext = () => {
-    setSelectedImageIndex((current) => 
-      current !== null && current < filteredItems.length - 1 ? current + 1 : current
-    )
   }
 
   return (
@@ -634,7 +623,7 @@ export default function GalleryPage(): JSX.Element {
         breadcrumbs={[
           { label: "Gallery", href: "/gallery" },
           ...(selectedCategory !== "All" ? [{ 
-            label: selectedCategory, // now selectedCategory is guaranteed to be a string
+            label: selectedCategory,
             href: `/gallery?category=${selectedCategory}` 
           }] : [])
         ]}
@@ -657,14 +646,15 @@ export default function GalleryPage(): JSX.Element {
             </button>
           ))}
         </div>
-        <AnimatePresence mode="wait">
+        
+        <AnimatePresence initial={false}>
           <motion.div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             layout
           >
             {filteredItems.map((item, index) => (
               <motion.div
-                key={index}
+                key={item.src}
                 layout
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -674,7 +664,7 @@ export default function GalleryPage(): JSX.Element {
                 onClick={() => setSelectedImageIndex(index)}
               >
                 <Image
-                  src={item.src || "/placeholder.svg"}
+                  src={item.src}
                   alt={item.title}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
@@ -682,7 +672,6 @@ export default function GalleryPage(): JSX.Element {
                 />
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="flex items-center justify-center h-full">
-                    {/* <p className="text-white font-playfair text-xl">{item.title}</p> */}
                   </div>
                 </div>
               </motion.div>
@@ -697,12 +686,51 @@ export default function GalleryPage(): JSX.Element {
               images={filteredItems}
               currentIndex={selectedImageIndex}
               onClose={() => setSelectedImageIndex(null)}
-              onNext={handleNext}
-              onPrevious={handlePrevious}
+              onNext={() => setSelectedImageIndex(prev => 
+                prev !== null && prev < filteredItems.length - 1 ? prev + 1 : prev
+              )}
+              onPrevious={() => setSelectedImageIndex(prev => 
+                prev !== null && prev > 0 ? prev - 1 : prev
+              )}
             />
           )}
         </AnimatePresence>
       </div>
     </>
+  )
+}
+
+// Loading component for Suspense fallback
+function GalleryLoading() {
+  return (
+    <div className="container mx-auto px-4 py-16">
+      <div className="animate-pulse">
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
+          {[1, 2, 3, 4, 5].map((i) => (
+            <div 
+              key={i}
+              className="h-10 w-24 bg-gray-200 rounded-full"
+            />
+          ))}
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[1, 2, 3, 4, 5, 6].map((i) => (
+            <div 
+              key={i}
+              className="aspect-square bg-gray-200 rounded-lg"
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// Main component with Suspense boundary
+export default function GalleryPage(): JSX.Element {
+  return (
+    <Suspense fallback={<GalleryLoading />}>
+      <GalleryContent />
+    </Suspense>
   )
 }
