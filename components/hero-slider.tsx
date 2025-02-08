@@ -4,7 +4,10 @@ import * as React from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { fetchSlides, Slide } from "@/lib/api"
 
+
+// replace with fetchSlides
 const slides = [
   {
     image:

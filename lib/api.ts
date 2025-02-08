@@ -22,6 +22,12 @@ export interface GalleryItem {
   description: string;
 }
 
+export interface Slide {
+  image: string | null;
+  title: string;
+  subtitle: string;
+}
+
 export async function fetchServices(): Promise<Service[]> {
   try {
     const response = await axios.get<Service[]>(`${API_BASE_URL}/services`);
@@ -55,6 +61,16 @@ export async function fetchGalleryCategories(): Promise<string[]> {
 export async function fetchGalleryItems(): Promise<GalleryItem[]> {
   try {
     const response = await axios.get<GalleryItem[]>(`${API_BASE_URL}/gallery`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching gallery items:', error);
+    throw error;
+  }
+}
+
+export async function fetchSlides(): Promise<Slide[]> {
+  try {
+    const response = await axios.get<Slide[]>(`${API_BASE_URL}/slides`);
     return response.data;
   } catch (error) {
     console.error('Error fetching gallery items:', error);

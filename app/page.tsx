@@ -8,7 +8,7 @@ import { HeroSlider } from "@/components/hero-slider";
 import { InstagramFeed } from "@/components/instagram-feed";
 import { ModernTestimonials } from "@/components/modern-testimonials";
 import { fetchServices, Service } from "../lib/api";
-import { SkeletonLoader } from "@/components/ui/services-skeleton-loader";
+import { SkeletonLoader } from "@/components/skeltons/services-skeleton-loader";
 
 export default function Home() {
   const [services, setServices] = React.useState<Service[]>([]);

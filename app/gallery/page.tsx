@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { PageHeader } from "@/components/page-header"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
 import { fetchGalleryCategories, fetchGalleryItems, GalleryItem } from "../../lib/api"
-import { GallerySkeleton } from "@/components/GallerySkeleton"
+import { GallerySkeleton } from "@/components/skeltons/gallery-skelton"
 
 interface LightboxProps {
   image: GalleryItem
@@ -257,7 +257,7 @@ function GalleryContent(): JSX.Element {
             ) : (
               <AnimatePresence initial={false}>
                 <motion.div
-                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                  className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
                   layout
                 >
                   {filteredItems.map((item, index) => (

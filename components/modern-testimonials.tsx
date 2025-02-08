@@ -1,4 +1,3 @@
-// filepath: /components/ModernTestimonials.tsx
 "use client"
 
 import * as React from "react"
@@ -6,7 +5,7 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
 import { fetchTestimonials, Testimonial } from '../lib/api'
-import { TestimonialSkeleton } from './ui/testimonial-skeleton'
+import { TestimonialSkeleton } from './skeltons/testimonial-skeleton'
 
 export function ModernTestimonials() {
   const [testimonials, setTestimonials] = React.useState<Testimonial[]>([]);
