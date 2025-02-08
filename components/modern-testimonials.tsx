@@ -4,43 +4,30 @@ import * as React from "react"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
-
-const testimonials = [
-  {
-    name: "John Doe",
-    role: "Newlywed",
-    image: "/placeholder.svg?height=200&width=200",
-    text: "Paul Jr captured our wedding day beautifully. The photos are stunning and truly reflect the joy of our special day.",
-  },
-  {
-    name: "Jane Smith",
-    role: "Mother of Two",
-    image: "/placeholder.svg?height=200&width=200",
-    text: "I'm so glad we chose Paul Jr for our family portraits. He made everyone feel comfortable and the results are amazing!",
-  },
-  {
-    name: "Mike Johnson",
-    role: "Engaged Couple",
-    image: "/placeholder.svg?height=200&width=200",
-    text: "Paul's attention to detail and creativity really shine through in our engagement photos. We couldn't be happier!",
-  },
-  {
-    name: "Sarah Williams",
-    role: "New Parent",
-    image: "/placeholder.svg?height=200&width=200",
-    text: "The newborn photos Paul took of our little one are absolutely precious. He was so patient and gentle throughout the session.",
-  },
-]
+import { fetchTestimonials, Testimonial } from '../lib/api'
 
 export function ModernTestimonials() {
-  const [currentIndex, setCurrentIndex] = React.useState(0)
+  const [testimonials, setTestimonials] = React.useState<Testimonial[]>([]);
+  const [currentIndex, setCurrentIndex] = React.useState(0);
+
+  React.useEffect(() => {
+    async function getTestimonials() {
+      const data = await fetchTestimonials();
+      setTestimonials(data);
+    }
+    getTestimonials();
+  }, []);
 
   const nextTestimonial = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length)
-  }
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+  };
 
   const prevTestimonial = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length)
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
+  };
+
+  if (testimonials.length === 0) {
+    return <div>Loading...</div>;
   }
 
   return (
@@ -89,6 +76,5 @@ export function ModernTestimonials() {
         </button>
       </div>
     </div>
-  )
+  );
 }
-
