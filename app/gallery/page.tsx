@@ -1,6 +1,7 @@
 "use client"
 import * as React from "react"
 import Image from "next/image"
+import { useSearchParams, useRouter } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { motion, AnimatePresence } from "framer-motion"
 import { PageHeader } from "@/components/page-header"
@@ -23,6 +24,15 @@ interface LightboxProps {
 }
 
 interface SlideVariants {
+  [key: string]: {
+    x: number
+    opacity: number
+    zIndex?: number
+  } | ((direction: number) => {
+    x: number
+    opacity: number
+    zIndex?: number
+  })
   enter: (direction: number) => {
     x: number
     opacity: number
@@ -581,12 +591,29 @@ const Lightbox: React.FC<LightboxProps> = ({ image, images, onClose, onNext, onP
 }
 
 export default function GalleryPage(): JSX.Element {
-  const [selectedCategory, setSelectedCategory] = React.useState<string>("All")
+  const router = useRouter()
+  const searchParams = useSearchParams()
+  const categoryParam = searchParams.get('category')
+  
+  // Validate and set the category, defaulting to "All" if invalid
+  const selectedCategory = categories.includes(categoryParam || "") 
+    ? categoryParam || "All"  // converts null to "All"
+    : "All"
+  
   const [selectedImageIndex, setSelectedImageIndex] = React.useState<number | null>(null)
   
   const filteredItems = galleryItems.filter(
     (item) => selectedCategory === "All" || item.category === selectedCategory
   )
+
+  const handleCategoryChange = (category: string) => {
+    // Update URL when category changes
+    const params = new URLSearchParams()
+    if (category !== "All") {
+      params.set('category', category)
+    }
+    router.push(`/gallery${params.toString() ? `?${params.toString()}` : ''}`)
+  }
 
   const handlePrevious = () => {
     setSelectedImageIndex((current) => 
@@ -604,7 +631,13 @@ export default function GalleryPage(): JSX.Element {
     <>
       <PageHeader
         title="Gallery"
-        breadcrumbs={[{ label: "Gallery", href: "/gallery" }]}
+        breadcrumbs={[
+          { label: "Gallery", href: "/gallery" },
+          ...(selectedCategory !== "All" ? [{ 
+            label: selectedCategory, // now selectedCategory is guaranteed to be a string
+            href: `/gallery?category=${selectedCategory}` 
+          }] : [])
+        ]}
         backgroundImage="/banner-bg-gallery.webp?height=800&width=1200"
       />
       <div className="container mx-auto px-4 py-16">
@@ -612,7 +645,7 @@ export default function GalleryPage(): JSX.Element {
           {categories.map((category) => (
             <button
               key={category}
-              onClick={() => setSelectedCategory(category)}
+              onClick={() => handleCategoryChange(category)}
               className={cn(
                 "px-4 py-2 rounded-full font-cormorant transition-colors duration-300 ease",
                 selectedCategory === category
