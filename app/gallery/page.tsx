@@ -7,13 +7,8 @@ import { cn } from "@/lib/utils"
 import { motion, AnimatePresence } from "framer-motion"
 import { PageHeader } from "@/components/page-header"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
-
-interface GalleryItem {
-  src: string
-  category: string
-  title: string
-  description?: string
-}
+import { fetchGalleryCategories, fetchGalleryItems, GalleryItem } from "../../lib/api"
+import { GallerySkeleton } from "@/components/GallerySkeleton"
 
 interface LightboxProps {
   image: GalleryItem
@@ -29,11 +24,7 @@ interface SlideVariants {
     x: number
     opacity: number
     zIndex?: number
-  } | ((direction: number) => {
-    x: number
-    opacity: number
-    zIndex?: number
-  })
+  }
   enter: (direction: number) => {
     x: number
     opacity: number
@@ -49,418 +40,6 @@ interface SlideVariants {
     opacity: number
   }
 }
-
-const categories: string[] = ["All", "Family", "Concert/Festival", "Weddings", "Engagement", "Maternity", "Newborn"]
-
-const galleryItems: GalleryItem[] = [
-  {
-    src: "/gallery/listing/Concert-Festival/event (6).webp",
-    category: "Concert/Festival",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Concert-Festival/event (1).webp",
-    category: "Concert/Festival",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Concert-Festival/event (2).webp",
-    category: "Concert/Festival",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Concert-Festival/event (3).webp",
-    category: "Concert/Festival",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Concert-Festival/event (4).webp",
-    category: "Concert/Festival",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Concert-Festival/event (5).webp",
-    category: "Concert/Festival",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Concert-Festival/event (8).webp",
-    category: "Concert/Festival",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Concert-Festival/event (9).webp",
-    category: "Concert/Festival",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Concert-Festival/event (10).webp",
-    category: "Concert/Festival",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Concert-Festival/event (11).webp",
-    category: "Concert/Festival",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  // generate 12 - 25 images object for Concert/Festival
-  {
-    src: "/gallery/listing/Concert-Festival/event (12).webp",
-    category: "Concert/Festival",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Concert-Festival/event (13).webp",
-    category: "Concert/Festival",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Concert-Festival/event (14).webp",
-    category: "Concert/Festival",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Concert-Festival/event (15).webp",
-    category: "Concert/Festival",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Concert-Festival/event (16).webp",
-    category: "Concert/Festival",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Concert-Festival/event (17).webp",
-    category: "Concert/Festival",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Concert-Festival/event (18).webp",
-    category: "Concert/Festival",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Concert-Festival/event (19).webp",
-    category: "Concert/Festival",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Concert-Festival/event (20).webp",
-    category: "Concert/Festival",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  
-  {
-    src: "/gallery/listing/Concert-Festival/event (21).webp",
-    category: "Concert/Festival",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Concert-Festival/event (22).webp",
-    category: "Concert/Festival",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  
-    {
-      src: "/gallery/listing/Concert-Festival/event (23).webp",
-      category: "Concert/Festival",
-      title: "Lorum Ipsum Dolor Sit Amet",
-      description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-    },
-  
-    {
-      src: "/gallery/listing/Concert-Festival/event (24).webp",
-      category: "Concert/Festival",
-      title: "Lorum Ipsum Dolor Sit Amet",
-      description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-    },
-  
-    {
-      src: "/gallery/listing/Concert-Festival/event (25).webp",
-      category: "Concert/Festival",
-      title: "Lorum Ipsum Dolor Sit Amet",
-      description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-    },
-
-
-  // generate 13 wedding image objects
-  {
-    src: "/gallery/listing/Weddings/wedding (1).webp",
-    category: "Weddings",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Weddings/wedding (2).webp",
-    category: "Weddings",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Weddings/wedding (3).webp",
-    category: "Weddings",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Weddings/wedding (4).webp",
-    category: "Weddings",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Weddings/wedding (5).webp",
-    category: "Weddings",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Weddings/wedding (6).webp",
-    category: "Weddings",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Weddings/wedding (7).webp",
-    category: "Weddings",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Weddings/wedding (8).webp",
-    category: "Weddings",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Weddings/wedding (9).webp",
-    category: "Weddings",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Weddings/wedding (10).webp",
-    category: "Weddings",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-
-  {
-    src: "/gallery/listing/Weddings/wedding (11).webp",
-    category: "Weddings",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Weddings/wedding (12).webp",
-    category: "Weddings",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  
-    {
-      src: "/gallery/listing/Weddings/wedding (13).webp",
-      category: "Weddings",
-      title: "Lorum Ipsum Dolor Sit Amet",
-      description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-    },
-
-
-  // family generate 8 images object
-  {
-    src: "/gallery/listing/Family/family (1).webp",
-    category: "Family",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Family/family (2).webp",
-    category: "Family",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Family/family (3).webp",
-    category: "Family",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Family/family (4).webp",
-    category: "Family",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Family/family (5).webp",
-    category: "Family",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Family/family (6).webp",
-    category: "Family",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Family/family (7).webp",
-    category: "Family",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Family/family (8).webp",
-    category: "Family",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  // 6 newborn images object
-  {
-    src: "/gallery/listing/Newborn/newborn (1).webp",
-    category: "Newborn",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Newborn/newborn (2).webp",
-    category: "Newborn",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Newborn/newborn (3).webp",
-    category: "Newborn",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Newborn/newborn (4).webp",
-    category: "Newborn",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Newborn/newborn (5).webp",
-    category: "Newborn",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Newborn/newborn (6).webp",
-    category: "Newborn",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  // 12 maternity images object
-  {
-    src: "/gallery/listing/Maternity/maternity (1).webp",
-    category: "Maternity",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Maternity/maternity (2).webp",
-    category: "Maternity",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Maternity/maternity (3).webp",
-    category: "Maternity",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Maternity/maternity (4).webp",
-    category: "Maternity",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Maternity/maternity (5).webp",
-    category: "Maternity",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Maternity/maternity (6).webp",
-    category: "Maternity",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Maternity/maternity (7).webp",
-    category: "Maternity",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Maternity/maternity (8).webp",
-    category: "Maternity",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Maternity/maternity (9).webp",
-    category: "Maternity",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Maternity/maternity (10).webp",
-    category: "Maternity",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Maternity/maternity (11).webp",
-    category: "Maternity",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Maternity/maternity (12).webp",
-    category: "Maternity",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  // 2 engagement images object
-  {
-    src: "/gallery/listing/Engagement/engagement (1).webp",
-    category: "Engagement",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    src: "/gallery/listing/Engagement/engagement (2).webp",
-    category: "Engagement",
-    title: "Lorum Ipsum Dolor Sit Amet",
-    description: "Lorum ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  // Add more items for each category
-]
 
 const slideVariants: SlideVariants = {
   enter: (direction: number) => ({
@@ -596,6 +175,29 @@ function GalleryContent(): JSX.Element {
   const searchParams = useSearchParams()
   const categoryParam = searchParams.get('category')
   
+  const [categories, setCategories] = React.useState<string[]>([]);
+  const [galleryItems, setGalleryItems] = React.useState<GalleryItem[]>([]);
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState<string | null>(null);
+
+  React.useEffect(() => {
+    async function getCategoriesAndItems() {
+      try {
+        const [categoriesData, galleryItemsData] = await Promise.all([
+          fetchGalleryCategories(),
+          fetchGalleryItems()
+        ]);
+        setCategories(categoriesData);
+        setGalleryItems(galleryItemsData);
+      } catch (error) {
+        setError('Failed to fetch gallery data. Please try again later.');
+      } finally {
+        setLoading(false);
+      }
+    }
+    getCategoriesAndItems();
+  }, []);
+
   const selectedCategory = categories.includes(categoryParam || "") 
     ? categoryParam || "All"
     : "All"
@@ -630,54 +232,63 @@ function GalleryContent(): JSX.Element {
         backgroundImage="/banner-bg-gallery.webp?height=800&width=1200"
       />
       <div className="container mx-auto px-4 py-16">
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => handleCategoryChange(category)}
-              className={cn(
-                "px-4 py-2 rounded-full font-cormorant transition-colors duration-300 ease",
-                selectedCategory === category
-                  ? "bg-primary text-white hover:bg-primary hover:text-white active:bg-primary active:text-white"
-                  : "bg-secondary text-primary hover:bg-primary hover:text-white"
-              )}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-        
-        <AnimatePresence initial={false}>
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-            layout
-          >
-            {filteredItems.map((item, index) => (
-              <motion.div
-                key={item.src}
-                layout
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-                className="relative aspect-square rounded-lg overflow-hidden group cursor-pointer"
-                onClick={() => setSelectedImageIndex(index)}
-              >
-                <Image
-                  src={item.src}
-                  alt={item.title}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="flex items-center justify-center h-full">
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </AnimatePresence>
+        {loading ? (
+          <GallerySkeleton />
+        ) : (
+          <>
+            <div className="flex flex-wrap justify-center gap-4 mb-12">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => handleCategoryChange(category)}
+                  className={cn(
+                    "px-4 py-2 rounded-full font-cormorant transition-colors duration-300 ease",
+                    selectedCategory === category
+                      ? "bg-primary text-white hover:bg-primary hover:text-white active:bg-primary active:text-white"
+                      : "bg-secondary text-primary hover:bg-primary hover:text-white"
+                  )}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+            {error ? (
+              <div>{error}</div>
+            ) : (
+              <AnimatePresence initial={false}>
+                <motion.div
+                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                  layout
+                >
+                  {filteredItems.map((item, index) => (
+                    <motion.div
+                      key={item.src}
+                      layout
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.5 }}
+                      className="relative aspect-square rounded-lg overflow-hidden group cursor-pointer"
+                      onClick={() => setSelectedImageIndex(index)}
+                    >
+                      <Image
+                        src={item.src}
+                        alt={item.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="flex items-center justify-center h-full">
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </AnimatePresence>
+            )}
+          </>
+        )}
 
         <AnimatePresence>
           {selectedImageIndex !== null && (
@@ -700,36 +311,10 @@ function GalleryContent(): JSX.Element {
   )
 }
 
-// Loading component for Suspense fallback
-function GalleryLoading() {
-  return (
-    <div className="container mx-auto px-4 py-16">
-      <div className="animate-pulse">
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {[1, 2, 3, 4, 5].map((i) => (
-            <div 
-              key={i}
-              className="h-10 w-24 bg-gray-200 rounded-full"
-            />
-          ))}
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[1, 2, 3, 4, 5, 6].map((i) => (
-            <div 
-              key={i}
-              className="aspect-square bg-gray-200 rounded-lg"
-            />
-          ))}
-        </div>
-      </div>
-    </div>
-  )
-}
-
 // Main component with Suspense boundary
 export default function GalleryPage(): JSX.Element {
   return (
-    <Suspense fallback={<GalleryLoading />}>
+    <Suspense fallback={<GallerySkeleton />}>
       <GalleryContent />
     </Suspense>
   )

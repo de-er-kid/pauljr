@@ -15,6 +15,13 @@ export interface Testimonial {
   text: string;
 }
 
+export interface GalleryItem {
+  src: string | null;
+  category: string;
+  title: string;
+  description: string;
+}
+
 export async function fetchServices(): Promise<Service[]> {
   try {
     const response = await axios.get<Service[]>(`${API_BASE_URL}/services`);
@@ -31,6 +38,26 @@ export async function fetchTestimonials(): Promise<Testimonial[]> {
     return response.data;
   } catch (error) {
     console.error('Error fetching testimonials:', error);
+    throw error;
+  }
+}
+
+export async function fetchGalleryCategories(): Promise<string[]> {
+  try {
+    const response = await axios.get<string[]>(`${API_BASE_URL}/gallery-categories`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching categories:', error);
+    throw error;
+  }
+}
+
+export async function fetchGalleryItems(): Promise<GalleryItem[]> {
+  try {
+    const response = await axios.get<GalleryItem[]>(`${API_BASE_URL}/gallery`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching gallery items:', error);
     throw error;
   }
 }
