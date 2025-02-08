@@ -1,3 +1,4 @@
+// filepath: /components/ModernTestimonials.tsx
 "use client"
 
 import * as React from "react"
@@ -5,10 +6,12 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
 import { fetchTestimonials, Testimonial } from '../lib/api'
+import { TestimonialSkeleton } from './ui/testimonial-skeleton'
 
 export function ModernTestimonials() {
   const [testimonials, setTestimonials] = React.useState<Testimonial[]>([]);
   const [currentIndex, setCurrentIndex] = React.useState(0);
+  const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState<string | null>(null);
 
   React.useEffect(() => {
@@ -18,6 +21,8 @@ export function ModernTestimonials() {
         setTestimonials(data);
       } catch (error) {
         setError('Failed to fetch testimonials. Please try again later.');
+      } finally {
+        setLoading(false);
       }
     }
     getTestimonials();
@@ -35,8 +40,8 @@ export function ModernTestimonials() {
     return <div>{error}</div>;
   }
 
-  if (testimonials.length === 0) {
-    return <div className="relative overflow-hidden bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">Loading...</div>;
+  if (loading) {
+    return <TestimonialSkeleton />;
   }
 
   return (

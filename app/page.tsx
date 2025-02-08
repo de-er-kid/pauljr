@@ -1,20 +1,38 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { HeroSlider } from "@/components/hero-slider"
-import { InstagramFeed } from "@/components/instagram-feed"
-import { ModernTestimonials } from "@/components/modern-testimonials"
+"use client"
 
-const services = [
-  { title: "Weddings", image: "/gallery/listing/Weddings/wedding (10).webp?height=600&width=800" },
-  { title: "Engagement", image: "/gallery/listing/Family/family (5).webp?height=600&width=800" },
-  { title: "Concert/Festival", image: "/gallery/listing/Concert-Festival/event (61).webp?height=600&width=800" },
-  { title: "Family", image: "/gallery/listing/Engagement/engagement (2).webp?height=600&width=800" },
-  { title: "Maternity", image: "/gallery/listing/Maternity/maternity (3).webp?height=600&width=800" },
-  { title: "Newborn", image: "/gallery/listing/Newborn/newborn (4).webp?height=600&width=800" },
-]
+import * as React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { HeroSlider } from "@/components/hero-slider";
+import { InstagramFeed } from "@/components/instagram-feed";
+import { ModernTestimonials } from "@/components/modern-testimonials";
+import { fetchServices, Service } from "../lib/api";
+import { SkeletonLoader } from "@/components/ui/services-skeleton-loader";
 
 export default function Home() {
+  const [services, setServices] = React.useState<Service[]>([]);
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState<string | null>(null);
+
+  React.useEffect(() => {
+    async function getServices() {
+      try {
+        const data = await fetchServices();
+        setServices(data);
+      } catch (error) {
+        setError('Failed to fetch services. Please try again later.');
+      } finally {
+        setLoading(false);
+      }
+    }
+    getServices();
+  }, []);
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
   return (
     <>
       <HeroSlider />
@@ -22,23 +40,27 @@ export default function Home() {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-playfair text-center mb-12">Our Services</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-            {services.map((service, index) => (
-              <a href={`/gallery?category=${service.title}`} key={index}>
-              <div key={index} className="relative aspect-[3/4] group overflow-hidden rounded-lg cursor-pointer">
-                <Image
-                  src={service.image || "/placeholder.svg"}
-                  alt={service.title}
-                  fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-800 ease">
-                  <h3 className="text-white font-playfair text-2xl">{service.title}</h3>
-                </div>
-              </div>
-              </a>
-            ))}
-          </div>
+          {loading ? (
+            <SkeletonLoader />
+          ) : (
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+              {services.map((service, index) => (
+                <a href={`/gallery?category=${service.title}`} key={index}>
+                  <div className="relative aspect-[3/4] group overflow-hidden rounded-lg cursor-pointer">
+                    <Image
+                      src={service.image || "/placeholder.svg"}
+                      alt={service.title}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-800 ease">
+                      <h3 className="text-white font-playfair text-2xl">{service.title}</h3>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -138,6 +160,5 @@ export default function Home() {
         </div>
       </section>
     </>
-  )
+  );
 }
-
