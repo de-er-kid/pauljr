@@ -36,7 +36,7 @@ export function ModernTestimonials() {
   }
 
   if (testimonials.length === 0) {
-    return <div>Loading...</div>;
+    return <div className="relative overflow-hidden bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">Loading...</div>;
   }
 
   return (
