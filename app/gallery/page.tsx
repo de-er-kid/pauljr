@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { PageHeader } from "@/components/page-header"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
 import { fetchGalleryCategories, fetchGalleryItems, GalleryItem } from "../../lib/api"
-import { GallerySkeleton } from "@/components/skeltons/gallery-skelton"
+import { GallerySkeleton } from "@/components/skeletons/gallery-skeleton"
 
 interface LightboxProps {
   image: GalleryItem

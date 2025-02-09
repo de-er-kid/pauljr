@@ -4,39 +4,43 @@ import * as React from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { fetchSlides, Slide } from "@/lib/api"
-
-
-// replace with fetchSlides
-const slides = [
-  {
-    image:
-      "/gallery/listing/Concert-Festival/event (81).webp",
-    title: "Capturing Timeless Moments",
-    subtitle: "Professional photography services in Ontario",
-  },
-  {
-    image:
-      "/gallery/listing/Weddings/wedding (3).webp?height=1080&width=1920",
-    title: "Creating Lasting Memories",
-    subtitle: "Wedding, Portrait & Event Photography",
-  },
-  {
-    image: "/gallery/listing/Maternity/maternity (4).webp?height=1080&width=1920",
-    title: "Your Story, Beautifully Told",
-    subtitle: "Available throughout Canada",
-  },
-]
+import { fetchSlides, Slide } from "../lib/api"
+import { HeroSkeleton } from "@/components/HeroSkeleton"
 
 export function HeroSlider() {
+  const [slides, setSlides] = React.useState<Slide[]>([])
   const [current, setCurrent] = React.useState(0)
+  const [loading, setLoading] = React.useState(true)
+  const [error, setError] = React.useState<string | null>(null)
+
+  React.useEffect(() => {
+    async function getSlides() {
+      try {
+        const slidesData = await fetchSlides()
+        setSlides(slidesData)
+      } catch (error) {
+        setError('Failed to fetch slides. Please try again later.')
+      } finally {
+        setLoading(false)
+      }
+    }
+    getSlides()
+  }, [])
 
   React.useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length)
     }, 5000)
     return () => clearInterval(timer)
-  }, [])
+  }, [slides.length])
+
+  if (loading) {
+    return <HeroSkeleton />
+  }
+
+  if (error) {
+    return <div>{error}</div>
+  }
 
   return (
     <div className="relative h-screen w-full overflow-hidden">
@@ -82,4 +86,3 @@ export function HeroSlider() {
     </div>
   )
 }
-
