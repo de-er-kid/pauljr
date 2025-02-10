@@ -1,11 +1,13 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail, Phone, MapPin } from "lucide-react"
 import { PageHeader } from "@/components/page-header"
+import { toast } from "@/components/ui/use-toast"
+import { Toaster } from "@/components/ui/toaster"
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -14,12 +16,53 @@ export default function ContactPage() {
     phone: "",
     message: "",
   })
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = `https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`;
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle form submission
-    console.log(formData)
-  }
+    e.preventDefault();
+    setLoading(true);
+  
+    try {
+      if (!window.grecaptcha || !window.grecaptcha.execute) {
+        throw new Error("reCAPTCHA is not available.");
+      }
+  
+      const recaptchaToken = await window.grecaptcha.execute(
+        process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
+        { action: "submit" }
+      );
+  
+      if (!recaptchaToken) {
+        throw new Error("Failed to generate reCAPTCHA token.");
+      }
+  
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, recaptchaToken }),
+      });
+  
+      if (!response.ok) {
+        throw new Error("Failed to send message.");
+      }
+  
+      toast({ title: "Success", description: "Message sent successfully!" });
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    } catch (error: any) {
+      console.error("Error submitting form:", error);
+      toast({ title: "Error", description: error.message || "An unexpected error occurred.", variant: "destructive" });
+    } finally {
+      setLoading(false);
+    }
+  };  
 
   return (
     <>
@@ -66,9 +109,9 @@ export default function ContactPage() {
             </div>
 
             <div className="flex flex-col justify-center align-middle">
-            <h2 className="font-playfair text-2xl mb-6">Send Your Message</h2>
-            <p className="font-cormorant text-lg mb-6">
-                if you have any enquiries feel free to keep in touch with me.
+              <h2 className="font-playfair text-2xl mb-6">Send Your Message</h2>
+              <p className="font-cormorant text-lg mb-6">
+                If you have any enquiries, feel free to keep in touch with me.
               </p>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
@@ -106,15 +149,15 @@ export default function ContactPage() {
                     rows={6}
                   />
                 </div>
-                <Button type="submit" className="w-full">
-                  Send Message
+                <Button type="submit" className="w-full" disabled={loading}>
+                  {loading ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </div>
           </div>
         </div>
       </div>
+      <Toaster />
     </>
   )
-}
-
+} 
