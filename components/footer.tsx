@@ -2,6 +2,7 @@ import Link from "next/link"
 import { Instagram, Facebook, Mail, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { Analytics } from "@vercel/analytics/react"
 
 export function Footer() {
   return (
@@ -85,6 +86,7 @@ export function Footer() {
           </div>
         </div>
       </div>
+      <Analytics/>
     </footer>
   )
 }
