@@ -75,7 +75,8 @@ export function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent>
-              <DialogTitle>Mobile Navigation Menu</DialogTitle> {/* Add DialogTitle for accessibility */}
+              {/* <DialogTitle>Mobile Navigation Menu</DialogTitle>  */}
+              {/* Add DialogTitle for accessibility */}
               <nav className="flex flex-col space-y-4 mt-8">
                 {routes.map((route) => (
                   <Link
